@@ -33,7 +33,8 @@ export function advertiseFleet({ data, member }, arg) {
 						`**Description**:\n${description}`,
 					]
 						.filter((s) => s != null)
-						.join("\n\n"),
+						.join("\n\n")
+						.replaceAll("@everyone", "@ everyone"),
 				},
 			],
 		},

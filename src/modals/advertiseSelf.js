@@ -33,7 +33,8 @@ export function advertiseSelf({ data, member }, arg) {
 						`**Picture of ship**:`,
 					]
 						.filter((s) => s != null)
-						.join("\n\n"),
+						.join("\n\n")
+						.replaceAll("@everyone", "@ everyone"),
 				},
 			],
 		},
