@@ -10,7 +10,7 @@ export function advertiseSelf({ data, member }, arg) {
 	const trophyRequirement = data.components[1].components[0].value;
 	const description = data.components[2].components[0].value;
 	const color = colors[Math.floor(Math.random() * colors.length)];
-	const image = "https://cdn.discordapp.com/ephemeral-attachments/" + arg;
+	const imageUrl = "https://cdn.discordapp.com/ephemeral-attachments/" + arg;
 
 	return {
 		type: 4, // respond to an interaction with a message
@@ -21,7 +21,9 @@ export function advertiseSelf({ data, member }, arg) {
 					type: "rich",
 					title: fleetName,
 					color,
-					image,
+					image: {
+						url: imageUrl,
+					},
 					description: `<@${member.user.id}> is looking for fleet members!
                 
 **Fleet name**:
