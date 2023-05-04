@@ -8,7 +8,8 @@ const colors = [
 export function advertiseSelf({ data, member }, arg) {
 	const ign = data.components[0].components[0].value;
 	const shipLvl = data.components[1].components[0].value;
-	const bio = data.components[2].components[0].value;
+	const trophyCount = data.components[2].components[0].value;
+	const bio = data.components[3].components[0].value;
 	const color = colors[Math.floor(Math.random() * colors.length)];
 	const imageUrl = "https://cdn.discordapp.com/ephemeral-attachments/" + arg;
 
@@ -32,8 +33,13 @@ ${ign}
 **Ship level**:
 ${shipLvl}
 
+**Trophy count**:
+${trophyCount}  🏆
+
 **About me**:
-${bio}`,
+${bio}
+
+**Picture of ship**:`,
 				},
 			],
 		},

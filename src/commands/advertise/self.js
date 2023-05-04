@@ -43,6 +43,21 @@ export function advertiseSelf({ data }) {
 					components: [
 						{
 							type: 4,
+							custom_id: "trophycount",
+							label: "Trophy count",
+							style: 1,
+							min_length: 1,
+							max_length: 10,
+							placeholder: "1000",
+							required: true,
+						},
+					],
+				},
+				{
+					type: 1,
+					components: [
+						{
+							type: 4,
 							custom_id: "bio",
 							label: "About me",
 							style: 2,
