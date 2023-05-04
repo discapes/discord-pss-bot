@@ -6,9 +6,9 @@ const colors = [
 ];
 
 export function advertiseSelf({ data, member }, arg) {
-	const fleetName = data.components[0].components[0].value;
-	const trophyRequirement = data.components[1].components[0].value;
-	const description = data.components[2].components[0].value;
+	const ign = data.components[0].components[0].value;
+	const shipLvl = data.components[1].components[0].value;
+	const bio = data.components[2].components[0].value;
 	const color = colors[Math.floor(Math.random() * colors.length)];
 	const imageUrl = "https://cdn.discordapp.com/ephemeral-attachments/" + arg;
 
@@ -19,21 +19,21 @@ export function advertiseSelf({ data, member }, arg) {
 			embeds: [
 				{
 					type: "rich",
-					title: fleetName,
+					title: ign,
 					color,
 					image: {
 						url: imageUrl,
 					},
-					description: `<@${member.user.id}> is looking for fleet members!
+					description: `<@${member.user.id}> is looking to join a fleet!
                 
-**Fleet name**:
-${fleetName}
+**In-game name**:
+${ign}
 
-**Trophy requirement**:
-${trophyRequirement}  🏆
+**Ship level**:
+${shipLvl}  🏆
 
-**Description**:
-${description}`,
+**About me**:
+${bio}`,
 				},
 			],
 		},

@@ -13,12 +13,12 @@ export function advertiseSelf({ data }) {
 					components: [
 						{
 							type: 4,
-							custom_id: "name",
-							label: "Fleet name",
+							custom_id: "ign",
+							label: "In-game name",
 							style: 1,
 							min_length: 1,
-							max_length: 30,
-							placeholder: "Space Invaders",
+							max_length: 50,
+							placeholder: "captain12312",
 							required: true,
 						},
 					],
@@ -28,8 +28,8 @@ export function advertiseSelf({ data }) {
 					components: [
 						{
 							type: 4,
-							custom_id: "trophy",
-							label: "Trophy requirement",
+							custom_id: "shiplvl",
+							label: "Ship level",
 							style: 1,
 							min_length: 1,
 							max_length: 10,
@@ -43,12 +43,12 @@ export function advertiseSelf({ data }) {
 					components: [
 						{
 							type: 4,
-							custom_id: "description",
-							label: "Description",
+							custom_id: "bio",
+							label: "About me",
 							style: 2,
 							min_length: 1,
 							max_length: 2000,
-							placeholder: "A brief description.\nCan be multiple lines.",
+							placeholder: "A little bit about yourself.\nCan be multiple lines.",
 							required: true,
 						},
 					],
