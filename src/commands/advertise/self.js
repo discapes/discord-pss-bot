@@ -2,6 +2,15 @@ export function advertiseSelf({ data }) {
 	const messageId = data.id;
 	const imageId = Object.keys(data.resolved.attachments)[0];
 	const fileName = data.resolved.attachments[imageId].filename;
+	if (fileName.length > 30)
+		return {
+			type: 4,
+			data: {
+				content: "File name is too long, it needs to be under 30 characters.",
+				flags: 1 << 6,
+			},
+		};
+
 	return {
 		type: 9, // MODAL
 		data: {

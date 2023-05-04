@@ -5,6 +5,14 @@ export function advertiseFleet({ data }) {
 		const imageId = Object.keys(data.resolved.attachments)[0];
 		const fileName = data.resolved.attachments[imageId].filename;
 		custom_id += "#" + [messageId, imageId, fileName].join("/");
+		if (fileName.length > 30)
+			return {
+				type: 4,
+				data: {
+					content: "File name is too long, it needs to be under 30 characters.",
+					flags: 1 << 6,
+				},
+			};
 	}
 
 	return {
