@@ -19,7 +19,7 @@ export function advertiseSelf({ data, member }, arg) {
 			embeds: [
 				{
 					type: "rich",
-					title: ign,
+					title: ign + " is looking for a fleet",
 					color,
 					image: {
 						url: imageUrl,
