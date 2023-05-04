@@ -79,6 +79,7 @@ function verify(headers, rawBody) {
 	const timestamp = headers["x-signature-timestamp"];
 	const body = rawBody;
 
+	// @ts-ignore
 	const isVerified = nacl.sign.detached.verify(
 		Buffer.from(timestamp + body),
 		Buffer.from(signature, "hex"),
