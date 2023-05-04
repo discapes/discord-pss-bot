@@ -1,9 +1,17 @@
 export function advertiseFleet({ data }) {
+	let custom_id = "advertiseFleet";
+	if (data.resolved?.attachments) {
+		const messageId = data.id;
+		const imageId = Object.keys(data.resolved.attachments)[0];
+		const fileName = data.resolved.attachments[imageId].filename;
+		custom_id += "#" + [messageId, imageId, fileName].join("/");
+	}
+
 	return {
 		type: 9, // MODAL
 		data: {
 			title: "Advertise your fleet",
-			custom_id: "advertiseFleet",
+			custom_id,
 			components: [
 				{
 					type: 1,
@@ -25,13 +33,28 @@ export function advertiseFleet({ data }) {
 					components: [
 						{
 							type: 4,
+							custom_id: "subfleets",
+							label: "Subfleet(s)",
+							style: 1,
+							min_length: 1,
+							max_length: 30,
+							placeholder: "Space Juniors",
+							required: false,
+						},
+					],
+				},
+				{
+					type: 1,
+					components: [
+						{
+							type: 4,
 							custom_id: "trophy",
 							label: "Trophy requirement",
 							style: 1,
 							min_length: 1,
 							max_length: 10,
 							placeholder: "1000",
-							required: true,
+							required: false,
 						},
 					],
 				},

@@ -5,11 +5,13 @@ const colors = [
 	41950, 42451, 36062, 5921528,
 ];
 
-export function advertiseFleet({ data, member }) {
+export function advertiseFleet({ data, member }, arg) {
 	const fleetName = data.components[0].components[0].value;
-	const trophyRequirement = data.components[1].components[0].value;
-	const description = data.components[2].components[0].value;
+	const subfleets = data.components[1].components[0].value;
+	const trophyRequirement = data.components[2].components[0].value;
+	const description = data.components[3].components[0].value;
 	const color = colors[Math.floor(Math.random() * colors.length)];
+	const imageUrl = "https://cdn.discordapp.com/ephemeral-attachments/" + arg;
 
 	return {
 		type: 4, // respond to an interaction with a message
@@ -20,13 +22,29 @@ export function advertiseFleet({ data, member }) {
 					type: "rich",
 					title: fleetName,
 					color,
+					image: arg && {
+						url: imageUrl,
+					},
 					description: `<@${member.user.id}> is looking for fleet members!
                 
 **Fleet name**:
 ${fleetName}
 
-**Trophy requirement**:
+${
+	subfleets
+		? `**Subfleet(s)**:
+${subfleets}
+`
+		: ``
+}
+${
+	trophyRequirement
+		? `**Trophy requirement**:
 ${trophyRequirement}  🏆
+`
+		: `No trophy requirement!
+		`
+}
 
 **Description**:
 ${description}`,

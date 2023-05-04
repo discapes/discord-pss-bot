@@ -11,6 +11,14 @@ export default {
 				description: "Advertise a fleet",
 				name: "fleet",
 				fn: advertiseFleet,
+				options: [
+					{
+						type: 11, // attachement
+						name: "image",
+						required: false,
+						description: "Fleet cover image",
+					},
+				],
 			},
 			{
 				type: 1,

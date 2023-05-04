@@ -20,12 +20,13 @@ export function advertiseSelf({ data, member }, arg) {
 			embeds: [
 				{
 					type: "rich",
-					title: `<@${member.user.id}> is looking to join a fleet!`,
 					color,
 					image: {
 						url: imageUrl,
 					},
-					description: `**In-game name**:
+					description: `<@${member.user.id}> is looking to join a fleet!
+
+**In-game name**:
 ${ign}
 
 **Ship level**:
