@@ -1,0 +1,29 @@
+name: Deploy
+run-name: Deploying Discord bot to Lambda🚀
+on:
+  push:
+    branches:
+      - master
+      - staging
+jobs:
+  Deploy-To-Lambda:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Package code into zip
+        run: cd src && zip -r ../function.zip *
+      - name: Deploy to aws
+        run: aws lambda update-function-code --zip-file fileb://function.zip --function-name pss-discord-bot-${{ github.ref_name }}
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: "eu-north-1"
+      - name: "Call to update commands"
+        run: >-
+          aws lambda invoke --function-name pss-discord-bot-${{ github.ref_name }} --payload '{"updateDiscordCommands":1}' out.json --cli-binary-format raw-in-base64-out &&
+          cat out.json
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: "eu-north-1"
