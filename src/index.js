@@ -16,7 +16,7 @@ function process(interaction) {
 		let fn = null;
 		if (data.name in commands) {
 			const command = commands[data.name];
-			fn = command.function;
+			fn = command.fn;
 			if (!fn) {
 				const subcmd = data.options.find((o) => o.type == 1).name;
 				fn = command.options.find((o) => o.name == subcmd).fn;
