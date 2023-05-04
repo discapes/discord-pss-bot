@@ -24,21 +24,16 @@ export function advertiseSelf({ data, member }, arg) {
 					image: {
 						url: imageUrl,
 					},
-					description: `<@${member.user.id}> is looking to join a fleet!
-
-**In-game name**:
-${ign}
-
-**Ship level**:
-${shipLvl}
-
-**Trophy count**:
-${trophyCount}  🏆
-
-**About me**:
-${bio}
-
-**Picture of ship**:`,
+					description: [
+						`<@${member.user.id}> is looking to join a fleet!`,
+						`**In-game name**:\n${ign}`,
+						`**Ship level**:\n${shipLvl}`,
+						`**Trophy count**:\n${trophyCount}  🏆`,
+						`**About me**:\n${bio}`,
+						`**Picture of ship**:`,
+					]
+						.filter((s) => s != null)
+						.join("\n\n"),
 				},
 			],
 		},

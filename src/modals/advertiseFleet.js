@@ -25,29 +25,15 @@ export function advertiseFleet({ data, member }, arg) {
 					image: arg && {
 						url: imageUrl,
 					},
-					description: `<@${member.user.id}> is looking for fleet members!
-                
-**Fleet name**:
-${fleetName}
-
-${
-	subfleets
-		? `**Subfleet(s)**:
-${subfleets}
-`
-		: ``
-}
-${
-	trophyRequirement
-		? `**Trophy requirement**:
-${trophyRequirement}  🏆
-`
-		: `No trophy requirement!
-		`
-}
-
-**Description**:
-${description}`,
+					description: [
+						`<@${member.user.id}> is looking for fleet members!`,
+						`**Fleet name**:\n${fleetName}`,
+						subfleets ? `**Subfleet(s)**:\n${subfleets}` : null,
+						trophyRequirement ? `**Trophy requirement**:\n${trophyRequirement}  🏆` : `**No trophy requirement!**`,
+						`**Description**:\n${description}`,
+					]
+						.filter((s) => s != null)
+						.join("\n\n"),
 				},
 			],
 		},
