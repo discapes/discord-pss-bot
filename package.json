@@ -1,0 +1,19 @@
+{
+  "name": "discord-pss-bot",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/discapes/discord-pss-bot.git"
+  },
+  "author": "Miika Tuominen",
+  "bugs": {
+    "url": "https://github.com/discapes/discord-pss-bot/issues"
+  },
+  "homepage": "https://github.com/discapes/discord-pss-bot#readme",
+  "devDependencies": {
+    "@types/node": "^18.16.3"
+  }
+}

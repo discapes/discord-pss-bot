@@ -1,5 +1,10 @@
 {
 	"compilerOptions": {
-		"checkJs": true
-	}
+		"checkJs": true,
+		"allowArbitraryExtensions": false,
+		"target": "ESNext",
+		"moduleResolution": "nodenext",
+		"esModuleInterop": true,
+		"outDir": "dist"
+	},
 }
