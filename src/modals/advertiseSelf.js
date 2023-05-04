@@ -30,7 +30,7 @@ export function advertiseSelf({ data, member }, arg) {
 ${ign}
 
 **Ship level**:
-${shipLvl}  🏆
+${shipLvl}
 
 **About me**:
 ${bio}`,

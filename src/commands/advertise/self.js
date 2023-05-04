@@ -33,7 +33,7 @@ export function advertiseSelf({ data }) {
 							style: 1,
 							min_length: 1,
 							max_length: 10,
-							placeholder: "1000",
+							placeholder: "8",
 							required: true,
 						},
 					],
